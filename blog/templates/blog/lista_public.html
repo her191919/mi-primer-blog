@@ -1,7 +1,21 @@
- <html>
+{% load static %}
+<html>
 <head>
-	<title>Blog del profe Jorge</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> 
+    <a href="https://en.wikipedia.org/wiki/Django" class="external_link" id="link_to_wiki_page"> 
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> 
+	<title>RECETAS DE HERNÁN</title>
 	<style>
+          .publicacion {
+        color: #000000; 
+        }
+        body {
+        color: #000000; }
+        .highlight {
+        color: rgb(22, 11, 85);
+        font-weight: bold; }
         .filtro-usuarios {
             margin: 15px 0;
             padding: 10px;
@@ -26,8 +40,8 @@
     </style>
 </head>
 <body>
-	<div style="background: red;">
-    	<h1><a href="/">Blog del profe Jorge</a></h1>
+	<div style="background: rgb(0, 200, 255);">
+            <h1><a href="/"><span class="highlight">RECETAS</span></a></h1>
     </div>
 	<!-- Filtro por usuario usando enlaces -->
 	<div class="filtro-usuarios">
@@ -50,12 +64,11 @@
    <!-- Lista de publicaciones -->
 
    <div>
-	{% for publicacion in publicaciones %} 
-	<p>Publicado: {{ publicacion.fecha_publicacion }} por autor/a: {{ publicacion.autor.username }} </p>
-	<h2> <a href=""> {{publicacion.titulo}} </a> </h2>
-	<p> {{ publicacion.texto|linebreaksbr }} </p>
-	<hr>	
-	{% endfor %}
+    {% for publicacion in publicaciones %} 
+    <p class="publicacion">Publicado: {{ publicacion.fecha_publicacion }} por autor/a: {{ publicacion.autor.username }}</p>
+    <h2 class="publicacion"><a href="Campari.html">{{ publicacion.titulo }}</a></h2>
+    <p class="publicacion">{{ publicacion.texto|linebreaksbr }}</p>
+    {% endfor %}
    </div>
 </body>
 </html>
