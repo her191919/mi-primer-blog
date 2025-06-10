@@ -4,7 +4,7 @@ import os
 import sys
 
 
-def master():
+def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ms.settings')
     try:
@@ -19,4 +19,4 @@ def master():
 
 
 if __name__ == '__main__':
-    master()
+    main()
